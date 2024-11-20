@@ -15,4 +15,4 @@ Complete sequencing data (including POD5 and FASTQ files) and classification mod
 ## Library preparation protocol
 A complete protocol for the sequencing approach (including EDC-activation of the 3´ adapter for chemical ligation, and chemical ligation conditions) is available on Benchling [here](https://benchling.com/protocols/1vXce4Gw/acylated-deacylated-trna-library-preparation-for-rna004-sequencing-final).
 
-Note: while Figure 3 plots will currently render upon cloning this repository and running the markdown files in the contained R project, Figure 4 files require additional large files from Remora metrics extraction. We intend to host these files on Zenodo (link to full dataset forthcoming).
+Note: while Figure 3 plots will currently render upon cloning this repository and running the markdown files in the contained R project, Figure 4 files require additional large files from Remora metrics extraction. These files are hosted on Zenodo at record [10.5281/zenodo.14194756]
