@@ -1,0 +1,58 @@
+---
+title: "White Radakovic Figure 3CD - nutrient starvation"
+author: "Laura White"
+date: "2024-11-20"
+output: html_document
+---
+```{r global options, include = FALSE}
+knitr::opts_chunk$set(message=FALSE)
+
+pkgs <- c("tidyverse",
+          "here",
+          "cowplot",
+          "purrr",
+          "ggrepel",
+          "FNN")
+
+# load packages
+invisible(lapply(pkgs, 
+                 library, 
+                 character.only = TRUE,
+                 warn.conflicts = FALSE,
+                 quietly = TRUE))
+
+theme_set(theme_cowplot())
+
+here::i_am("rmd/Figure3CD.Rmd")
+```
+Define colors for tRNA plotting.
+```{r}
+# throw in our new color scheme
+aa_mapping <- c(
+  "Lysine" = "#56B4E9", "Lys" = "#56B4E9", "K" = "#56B4E9",
+  "Arginine" = "#0072B2", "Arg" = "#0072B2", "R" = "#0072B2",
+  "Aspartic acid" = "#ef3b2c", "Asp" = "#ef3b2c", "D" = "#ef3b2c",
+  "Glutamic acid" = "#a50f15", "Glu" = "#a50f15", "E" = "#a50f15",
+  "Phenylalanine" = "#d9d9d9", "Phe" = "#d9d9d9", "F" = "#d9d9d9",
+  "Tyrosine" = "#737373", "Tyr" = "#737373", "Y" = "#737373",
+  "Tryptophan" = "#252525", "Trp" = "#252525", "W" = "#252525",
+  "Glycine" = "#c7e9c0", "Gly" = "#c7e9c0", "G" = "#c7e9c0",
+  "Alanine" = "#a1d99b", "Ala" = "#a1d99b", "A" = "#a1d99b",
+  "Valine" = "#74c476", "Val" = "#74c476", "V" = "#74c476",
+  "Isoleucine" = "#238b45", "Ile" = "#238b45", "I" = "#238b45",
+  "Leucine" = "#00441b", "Leu" = "#00441b", "L" = "#00441b",
+  "Serine" = "#bcbddc", "Ser" = "#bcbddc", "S" = "#bcbddc",
+  "Threonine" = "#9e9ac8", "Thr" = "#9e9ac8", "T" = "#9e9ac8",
+  "Asparagine" = "#807dba", "Asn" = "#807dba", "N" = "#807dba",
+  "Glutamine" = "#4a1486", "Gln" = "#4a1486", "Q" = "#4a1486",
+  "Cysteine" = "#fff7bc", "Cys" = "#fff7bc", "C" = "#fff7bc",
+  "Histidine" = "#fee391", "His" = "#fee391", "H" = "#fee391",
+  "Methionine" = "#fec44f", "Met" = "#fec44f", "iMet" = "#fec44f", "M" = "#fec44f",
+  "Proline" = "#fe9929", "Pro" = "#fe9929", "P" = "#fe9929",
+  "Selenocysteine" = "#ec7014", "Sec" = "#ec7014", "U" = "#ec7014"
+)
+```
+Figure 3 (C) Log2 fold change in tRNA abundance and tRNA charging percent charged reads for all isodecoders after 15 minutes growth in synthetic complete (SC) or leucine dropout media. Points represent the mean of the same 3 biological replicates from panel (B), with error bars spanning the standard deviation.
+
+
+(D) Volcano plot of the mean fold change in aminoacylation for the same 3 replicates in panels (B) and (C), with Z-test p-values on the y-axis and dashed line indicating the 𝛼 threshold.
