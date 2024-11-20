@@ -1,5 +1,5 @@
 ---
-title: "White Radakovic Figure 3"
+title: "White Radakovic Figure 3A - charging quantitation"
 author: "Laura White"
 date: "2024-11-20"
 output: html_document

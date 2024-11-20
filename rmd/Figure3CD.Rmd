@@ -52,7 +52,158 @@ aa_mapping <- c(
   "Selenocysteine" = "#ec7014", "Sec" = "#ec7014", "U" = "#ec7014"
 )
 ```
-Figure 3 (C) Log2 fold change in tRNA abundance and tRNA charging percent charged reads for all isodecoders after 15 minutes growth in synthetic complete (SC) or leucine dropout media. Points represent the mean of the same 3 biological replicates from panel (B), with error bars spanning the standard deviation.
 
+Pull in CPM-normalized summary tsvs from per-read tsvs produced by running the CCA model on our charged tRNA sequencing data. Can use these to generate abundnace, charging, log2 fold changes in the both.
+```{r}
+tsv_dir <- here("data/classification_test/leudepletion")
+
+# Get all .tsv file paths in the directory
+tsv_files <- list.files(tsv_dir, pattern = "\\.tsv$", full.names = TRUE)
+
+# Import all TSV files into a list & combine into one df with a column including the file name 
+tsv_list <- map2(tsv_files, tsv_files, ~ read_tsv(.x) %>% mutate(filename = basename(.y)))
+
+combined_tsv <- bind_rows(tsv_list) %>%
+  mutate(filename = str_remove(filename, "\\_charging_likelihood_cpm.tsv$")) %>%  # remove end of file name
+  separate(filename, into = c("genotype", "media", "time", "rep")) %>%
+  separate(tRNA, into = c("tRNA", "AA", "anticodon", "family", "species")) %>%
+  mutate(rep = str_remove(rep, "r")) %>%
+  mutate(rep = str_remove(rep, "ep")) %>%
+  select(-genotype) # for this one experiment can drop 
+
+
+combined_summary <- combined_tsv %>%
+  group_by(tRNA, AA, anticodon, time, media, rep) %>%
+  summarise(
+    charged = sum(charged),
+    uncharged = sum(uncharged),
+    charged_CPM = sum(charged_CPM),
+    uncharged_CPM = sum(uncharged_CPM),
+    .groups = 'drop'  # Optionally ungroup after summarizing
+  )
+```
+
+Figure 3 (C) Log2 fold change in tRNA abundance and tRNA charging percent charged reads for all isodecoders after 15 minutes growth in synthetic complete (SC) or leucine dropout media. Points represent the mean of the same 3 biological replicates from panel (B), with error bars spanning the standard deviation.
+For our EZ charging northern-matched sequencing data we opted for 15 min timepoints (these are reps 5-7).
+```{r}
+combined_summary %>%
+  select(-charged, -uncharged) %>% # we only care about CPM
+  mutate(total = charged_CPM + uncharged_CPM, 
+           pct_charged = ifelse(total > 0, 100 * (charged_CPM / total), NA)) -> cleaned_data
+
+# Define the baseline and comparison temperatures
+baseline_media <- "SC"
+comparison_media <- "minusleu"
+
+# Calculate log2 fold changes
+log2fc_data <- cleaned_data %>%
+  filter(!str_starts(tRNA, "pre")) %>% # remove pre-tRNAs, low counts on these & dubious
+  filter(time == "15m") %>%
+  filter(rep %in% c(5, 6, 7)) %>%
+  filter(media %in% c(baseline_media, comparison_media)) %>%
+  group_by(AA, anticodon, rep) %>%
+  summarize(
+    log2fc_total = log2(total[media == comparison_media] / total[media == baseline_media]),
+    log2fc_pct_charged = log2(pct_charged[media == comparison_media] / pct_charged[media == baseline_media]),
+    .groups = 'drop'
+  ) %>%
+  ungroup() %>%
+  mutate(label = paste(AA, anticodon, sep = "-"))  # Create the label column for plotting
+
+repsum_data <- log2fc_data %>%
+  group_by(AA, anticodon, label) %>%
+  summarize(
+    mean_log2fc_total = mean(log2fc_total),
+    sd_log2fc_total = sd(log2fc_total),
+    mean_log2fc_pct_charged = mean(log2fc_pct_charged),
+    sd_log2fc_pct_charged = sd(log2fc_pct_charged),
+    .groups = "drop"
+  )
+
+ggplot(repsum_data, aes(x = mean_log2fc_total, y = mean_log2fc_pct_charged)) +
+    geom_hline(yintercept = 0, color = "black", linetype = "solid", size = 0.5) +  # Darker line at y=0
+    geom_vline(xintercept = 0, color = "black", linetype = "solid", size = 0.5) +  # Darker line at x=0
+    geom_errorbarh(aes(xmin = mean_log2fc_total - sd_log2fc_total, 
+                       xmax = mean_log2fc_total + sd_log2fc_total), 
+                   height = 0.2, color = "black", alpha = 0.1) +  # Horizontal error bars
+    geom_errorbar(aes(ymin = mean_log2fc_pct_charged - sd_log2fc_pct_charged, 
+                      ymax = mean_log2fc_pct_charged + sd_log2fc_pct_charged), 
+                  width = 0.2, color = "black", alpha = 0.1) +  # Vertical error bars
+    geom_point(aes(color = AA), size = 3) +  # Customize color based on AA, size adjusted for visibility
+    labs(
+      x = "Log2 fold change (abundance)",
+      y = "Log2 fold change (% charging)",
+      title = ""
+    ) +
+    scale_color_manual(values = aa_mapping) +  # Apply your custom color palette
+    geom_text_repel(aes(label = label), size = 4) +  # Adjust text size as needed
+    theme_cowplot() +
+    theme(
+          legend.position = "none",
+          aspect.ratio = 1,
+          plot.background = element_rect(fill = "white", color = NA),
+          panel.background = element_rect(fill = "white", color = NA)
+          ) +
+    coord_fixed(ratio = 1) +
+    guides(
+      color = guide_legend(nrow = 3, byrow = TRUE)  # Arrange legend into 3 rows, wrapping items across rows
+    ) -> plot
+ggsave(here("figures", "Leustarvation3C.png"), plot = plot, width = 4, height = 4, units = "in")
+  
+```
 
 (D) Volcano plot of the mean fold change in aminoacylation for the same 3 replicates in panels (B) and (C), with Z-test p-values on the y-axis and dashed line indicating the 𝛼 threshold.
+Z test to find significant changes
+```{r}
+# Step 1: Calculate mean log2fc_pct_charged for each isodecoder
+mean_data <- log2fc_data %>%
+  group_by(label, AA) %>%
+  summarise(mean_log2fc_pct_charged = mean(log2fc_pct_charged, na.rm = TRUE))
+
+# Step 2: Calculate overall mean and standard deviation across all isodecoder means
+overall_mean <- mean(mean_data$mean_log2fc_pct_charged, na.rm = TRUE)
+overall_sd <- sd(mean_data$mean_log2fc_pct_charged, na.rm = TRUE)
+
+# Step 3: Calculate Z-scores and corresponding p-values
+test_results <- mean_data %>%
+  mutate(
+    z_score = (mean_log2fc_pct_charged - overall_mean) / overall_sd,
+    p_value = 2 * pnorm(-abs(z_score))  # two-sided p-value
+  )
+
+# Step 4: Adjust p-values for multiple testing using BH correction
+test_results <- test_results %>%
+  mutate(adj_p_value = p.adjust(p_value, method = "BH")) %>%
+  mutate(xform_adj_pval = -log10(adj_p_value))
+
+# Join the standard deviation for log2fc_pct_charged from repsum_data to test_results
+test_results <- test_results %>%
+  left_join(repsum_data %>% select(label, AA, sd_log2fc_pct_charged), by = c("label", "AA"))
+
+# plot corrected pvals against log2fc with horizontal error bars
+test_results %>%
+  ggplot(aes(x = mean_log2fc_pct_charged, y = xform_adj_pval, color = AA, label = label)) +
+  geom_hline(yintercept = 1.3, linetype = "dashed", color = "grey50", size = .75) +
+  geom_vline(xintercept = 0) +
+  geom_errorbarh(aes(xmin = mean_log2fc_pct_charged - sd_log2fc_pct_charged, 
+                     xmax = mean_log2fc_pct_charged + sd_log2fc_pct_charged), 
+                 height = 0.2, color = "black", alpha = 0.1) +  # Horizontal error bars
+  geom_point(size = 3) +  # Plot mean values
+  geom_text_repel(aes(label = label), size = 4, color = "black") + 
+  scale_color_manual(values = aa_mapping) + 
+  labs(
+    x = "Log2 fold change (% charging)",
+    y = "-log10(p-val)",
+    title = "",
+    color = "Amino Acid"
+  ) +
+  theme_cowplot() +
+  theme(
+        legend.position = "none",
+        aspect.ratio = 1,
+        plot.background = element_rect(fill = "white", color = NA),
+        panel.background = element_rect(fill = "white", color = NA)
+        ) +
+  coord_fixed(ratio = 1) -> plot
+ggsave(here("figures", "Leustarvation3D.png"), plot = plot, width = 4, height = 4, units = "in")
+```
