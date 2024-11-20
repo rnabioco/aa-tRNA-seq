@@ -1,0 +1,259 @@
+---
+title: "White Radakovic Figure 3FGH - rapid tRNA decay"
+author: "Laura White"
+date: "2024-11-20"
+output: html_document
+---
+```{r global options, include = FALSE}
+knitr::opts_chunk$set(message=FALSE)
+
+pkgs <- c("tidyverse",
+          "here",
+          "cowplot",
+          "purrr",
+          "ggrepel",
+          "FNN")
+
+# load packages
+invisible(lapply(pkgs, 
+                 library, 
+                 character.only = TRUE,
+                 warn.conflicts = FALSE,
+                 quietly = TRUE))
+
+theme_set(theme_cowplot())
+
+here::i_am("rmd/Figure3FGH.Rmd")
+```
+Define colors for tRNA plotting.
+```{r}
+# throw in our new color scheme
+aa_mapping <- c(
+  "Lysine" = "#56B4E9", "Lys" = "#56B4E9", "K" = "#56B4E9",
+  "Arginine" = "#0072B2", "Arg" = "#0072B2", "R" = "#0072B2",
+  "Aspartic acid" = "#ef3b2c", "Asp" = "#ef3b2c", "D" = "#ef3b2c",
+  "Glutamic acid" = "#a50f15", "Glu" = "#a50f15", "E" = "#a50f15",
+  "Phenylalanine" = "#d9d9d9", "Phe" = "#d9d9d9", "F" = "#d9d9d9",
+  "Tyrosine" = "#737373", "Tyr" = "#737373", "Y" = "#737373",
+  "Tryptophan" = "#252525", "Trp" = "#252525", "W" = "#252525",
+  "Glycine" = "#c7e9c0", "Gly" = "#c7e9c0", "G" = "#c7e9c0",
+  "Alanine" = "#a1d99b", "Ala" = "#a1d99b", "A" = "#a1d99b",
+  "Valine" = "#74c476", "Val" = "#74c476", "V" = "#74c476",
+  "Isoleucine" = "#238b45", "Ile" = "#238b45", "I" = "#238b45",
+  "Leucine" = "#00441b", "Leu" = "#00441b", "L" = "#00441b",
+  "Serine" = "#bcbddc", "Ser" = "#bcbddc", "S" = "#bcbddc",
+  "Threonine" = "#9e9ac8", "Thr" = "#9e9ac8", "T" = "#9e9ac8",
+  "Asparagine" = "#807dba", "Asn" = "#807dba", "N" = "#807dba",
+  "Glutamine" = "#4a1486", "Gln" = "#4a1486", "Q" = "#4a1486",
+  "Cysteine" = "#fff7bc", "Cys" = "#fff7bc", "C" = "#fff7bc",
+  "Histidine" = "#fee391", "His" = "#fee391", "H" = "#fee391",
+  "Methionine" = "#fec44f", "Met" = "#fec44f", "iMet" = "#fec44f", "M" = "#fec44f",
+  "Proline" = "#fe9929", "Pro" = "#fe9929", "P" = "#fe9929",
+  "Selenocysteine" = "#ec7014", "Sec" = "#ec7014", "U" = "#ec7014"
+)
+```
+Pull in the result of running Remora classification on the RTD strains
+```{r}
+tsv_dir <- here("data/classification_test/trm8trm4")
+
+# Get all .tsv file paths in the directory
+tsv_files <- list.files(tsv_dir, pattern = "\\.tsv$", full.names = TRUE)
+
+# Import all TSV files into a list & combine into one df with a column including the file name 
+tsv_list <- map2(tsv_files, tsv_files, ~ read_tsv(.x) %>% mutate(filename = basename(.y)))
+
+combined_tsv <- bind_rows(tsv_list) %>%
+  mutate(filename = str_remove(filename, "\\_charging_likelihood_cpm.tsv$")) %>%  # remove end of file name
+  separate(filename, into = c("genotype", "media", "temp", "rep")) %>%
+  separate(tRNA, into = c("tRNA", "AA", "anticodon", "family", "species")) %>%
+  mutate(rep = str_remove(rep, "r")) %>%
+  mutate(rep = str_remove(rep, "ep")) %>%
+  mutate(temp = str_remove(temp, "C")) %>%
+  filter(tRNA != "pretRNA") %>%
+  select(-media)
+
+
+combined_summary <- combined_tsv %>%
+  group_by(tRNA, AA, anticodon, temp, rep, genotype) %>%
+  summarise(
+    charged = sum(charged),
+    uncharged = sum(uncharged),
+    charged_CPM = sum(charged_CPM),
+    uncharged_CPM = sum(uncharged_CPM),
+    .groups = 'drop'
+  )
+
+combined_summary %>%
+  select(-charged, -uncharged) %>% # we only care about CPM
+  mutate(total = charged_CPM + uncharged_CPM, 
+           pct_charged = ifelse(total > 0, 100 * (charged_CPM / total), NA)) -> cleaned_data
+
+# Define the baseline and comparison temperatures
+baseline_temp <- 28
+comparison_temp <- 37
+
+# Calculate log2 fold changes
+log2fc_data <- cleaned_data %>%
+  filter(temp %in% c(baseline_temp, comparison_temp)) %>%
+  group_by(AA, anticodon, rep, genotype) %>%
+  summarize(
+    log2fc_total = log2(total[temp == comparison_temp] / total[temp == baseline_temp]),
+    log2fc_pct_charged = log2(pct_charged[temp == comparison_temp] / pct_charged[temp == baseline_temp]),
+    .groups = 'drop'
+  ) %>%
+  ungroup() %>%
+  mutate(label = paste(AA, anticodon, sep = "-"))  # Create the label column for plotting
+
+
+repsum_data <- log2fc_data %>%
+  group_by(AA, anticodon, label, genotype) %>%
+  summarize(
+    mean_log2fc_total = mean(log2fc_total),
+    sd_log2fc_total = sd(log2fc_total),
+    mean_log2fc_pct_charged = mean(log2fc_pct_charged),
+    sd_log2fc_pct_charged = sd(log2fc_pct_charged),
+    .groups = "drop"
+  )
+
+repsum_data %>%
+  filter(genotype == "trm8trm4") %>%
+  ggplot(., aes(x = mean_log2fc_total, y = mean_log2fc_pct_charged)) +
+    geom_hline(yintercept = 0, color = "black", linetype = "solid", size = 0.5) +  # Darker line at y=0
+    geom_vline(xintercept = 0, color = "black", linetype = "solid", size = 0.5) +  # Darker line at x=0
+    geom_errorbarh(aes(xmin = mean_log2fc_total - sd_log2fc_total, 
+                       xmax = mean_log2fc_total + sd_log2fc_total), 
+                   height = 0.2, color = "black", alpha = 0.1) +  # Horizontal error bars
+    geom_errorbar(aes(ymin = mean_log2fc_pct_charged - sd_log2fc_pct_charged, 
+                      ymax = mean_log2fc_pct_charged + sd_log2fc_pct_charged), 
+                  width = 0.2, color = "black", alpha = 0.1) +  # Vertical error bars
+    geom_point(aes(color = AA), size = 3) +  # Customize color based on AA, size adjusted for visibility
+    labs(
+      x = "Log2 fold change (abundance)",
+      y = "Log2 fold change (% charging)",
+      title = ""
+    ) +
+    scale_color_manual(values = aa_mapping) +  # Apply your custom color palette
+    geom_text_repel(aes(label = label), size = 4) +  # Adjust text size as needed
+    theme_cowplot() +
+    theme(
+          legend.position = "none",
+          aspect.ratio = 1,
+          plot.background = element_rect(fill = "white", color = NA),
+          panel.background = element_rect(fill = "white", color = NA)) +
+    coord_fixed(ratio = 1) +
+    guides(
+      color = guide_legend(nrow = 3, byrow = TRUE)  # Arrange legend into 3 rows, wrapping items across rows
+    ) -> plot
+ggsave(here("figures", "RTDstrains3F.png"), plot = plot, width = 4, height = 4, units = "in")
+```
+Make volcano plot for that data.
+```{r}
+# Step 1: Calculate mean log2fc_pct_charged for each isodecoder
+mean_data <- log2fc_data %>%
+  group_by(label, AA, genotype) %>%
+  summarise(mean_log2fc_pct_charged = mean(log2fc_pct_charged, na.rm = TRUE))
+
+# Step 2: Calculate overall mean and standard deviation across all isodecoder means
+overall_mean <- mean(mean_data$mean_log2fc_pct_charged, na.rm = TRUE)
+overall_sd <- sd(mean_data$mean_log2fc_pct_charged, na.rm = TRUE)
+
+# Step 3: Calculate Z-scores and corresponding p-values
+test_results <- mean_data %>%
+  mutate(
+    z_score = (mean_log2fc_pct_charged - overall_mean) / overall_sd,
+    p_value = 2 * pnorm(-abs(z_score))  # two-sided p-value
+  )
+
+# Step 4: Adjust p-values for multiple testing using BH correction
+test_results <- test_results %>%
+  mutate(adj_p_value = p.adjust(p_value, method = "BH")) %>%
+  mutate(xform_adj_pval = -log10(adj_p_value))
+
+# Join standard deviation data from repsum_data to test_results
+test_results <- test_results %>%
+  left_join(repsum_data %>% select(label, AA, genotype, sd_log2fc_pct_charged), by = c("label", "AA", "genotype"))
+
+# Plot with horizontal error bars and facets
+test_results %>%
+  ggplot(aes(x = mean_log2fc_pct_charged, y = xform_adj_pval, color = AA, label = label)) +
+  geom_rect(aes(xmin = -Inf, xmax = Inf, ymin = 0, ymax = 1.3), fill = "grey90", alpha = 0.5, color = NA) +
+  geom_errorbarh(aes(xmin = mean_log2fc_pct_charged - sd_log2fc_pct_charged, 
+                     xmax = mean_log2fc_pct_charged + sd_log2fc_pct_charged), 
+                 height = 0.2, color = "black", alpha = 0.1) +  # Horizontal error bars
+  geom_point(size = 3) +  # Plot mean values
+  geom_text_repel(aes(label = label), size = 3, color = "black") + 
+  scale_color_manual(values = aa_mapping) + 
+  labs(
+    x = "Mean log2fc, % charging",
+    y = "-log10(p-value)",
+    title = "Change in tRNA charging, heat stress",
+    color = "Amino Acid"
+  ) +
+  theme_cowplot() +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
+  theme(legend.position = "none") +
+  coord_fixed(ratio = .5) +
+  facet_grid(~genotype)
+
+# Plot for trm8trm4 genotype with horizontal error bars
+test_results %>%
+  filter(genotype == "trm8trm4") %>%
+  ggplot(aes(x = mean_log2fc_pct_charged, y = xform_adj_pval, color = AA, label = label)) +
+  geom_hline(yintercept = 1.3, linetype = "dashed", color = "grey50", size = .75) +
+  geom_vline(xintercept = 0) +
+  geom_errorbarh(aes(xmin = mean_log2fc_pct_charged - sd_log2fc_pct_charged, 
+                     xmax = mean_log2fc_pct_charged + sd_log2fc_pct_charged), 
+                 height = 0.2, color = "black", alpha = 0.1) +  # Horizontal error bars
+  geom_point(size = 3) +  # Plot mean values
+  geom_text_repel(aes(label = label), size = 3, color = "black") + 
+  scale_color_manual(values = aa_mapping) + 
+  labs(
+    x = "Log2 fold change (% charging)",
+    y = "-log10(p-val)",
+    title = "",
+    color = "Amino Acid"
+  ) +
+  theme_cowplot() +
+  theme(
+    legend.position = "none",
+    aspect.ratio = 1,
+    plot.background = element_rect(fill = "white", color = NA),
+    panel.background = element_rect(fill = "white", color = NA)
+  ) +
+  coord_fixed(ratio = 1) -> plot
+ggsave(here("figures", "RTDstrains3G.png"), plot = plot, width = 4, height = 4, units = "in")
+```
+And compare this to when met22 is co-deleted.
+```{r}
+repsum_data %>%
+  filter(genotype == "trm8trm4met22") %>%
+  ggplot(., aes(x = mean_log2fc_total, y = mean_log2fc_pct_charged)) +
+    geom_hline(yintercept = 0, color = "black", linetype = "solid", size = 0.5) +  # Darker line at y=0
+    geom_vline(xintercept = 0, color = "black", linetype = "solid", size = 0.5) +  # Darker line at x=0
+    geom_errorbarh(aes(xmin = mean_log2fc_total - sd_log2fc_total, 
+                       xmax = mean_log2fc_total + sd_log2fc_total), 
+                   height = 0.2, color = "black", alpha = 0.1) +  # Horizontal error bars
+    geom_errorbar(aes(ymin = mean_log2fc_pct_charged - sd_log2fc_pct_charged, 
+                      ymax = mean_log2fc_pct_charged + sd_log2fc_pct_charged), 
+                  width = 0.2, color = "black", alpha = 0.1) +  # Vertical error bars
+    geom_point(aes(color = AA), size = 3) +  # Customize color based on AA, size adjusted for visibility
+    labs(
+      x = "Log2 fold change (abundance)",
+      y = "Log2 fold change (% charging)",
+      title = ""
+    ) +
+    scale_color_manual(values = aa_mapping) +  # Apply your custom color palette
+    geom_text_repel(aes(label = label), size = 4) +  # Adjust text size as needed
+    theme_cowplot() +
+    theme(
+          legend.position = "none",
+          aspect.ratio = 1,
+          plot.background = element_rect(fill = "white", color = NA),
+          panel.background = element_rect(fill = "white", color = NA)) +
+    coord_fixed(ratio = 1) +
+    guides(
+      color = guide_legend(nrow = 3, byrow = TRUE)  # Arrange legend into 3 rows, wrapping items across rows
+    ) -> plot
+ggsave(here("figures", "RTDstrains3H.png"), plot = plot, width = 4, height = 4, units = "in")
+```
+
