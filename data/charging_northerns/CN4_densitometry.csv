@@ -1,0 +1,667 @@
+AA,anticodon,Lane,Band,% of Lane
+Gly,GCC,Deacylated input,Chemi Ligated,0
+Gly,GCC,Deacylated input,*,0
+Gly,GCC,Deacylated input,Acylated,0
+Gly,GCC,Deacylated input,Deacylated,100
+Gly,GCC,Deacylated -imid,Chemi Ligated,0
+Gly,GCC,Deacylated -imid,*,0
+Gly,GCC,Deacylated -imid,Acylated,0
+Gly,GCC,Deacylated -imid,Deacylated,100
+Gly,GCC,Deacylated +imid,Chemi Ligated,0.1
+Gly,GCC,Deacylated +imid,*,0
+Gly,GCC,Deacylated +imid,Acylated,0
+Gly,GCC,Deacylated +imid,Deacylated,99.9
+Gly,GCC,Acylated input,Chemi Ligated,0
+Gly,GCC,Acylated input,*,0
+Gly,GCC,Acylated input,Acylated,47.5
+Gly,GCC,Acylated input,Deacylated,52.5
+Gly,GCC,Acylated -imid,Chemi Ligated,0
+Gly,GCC,Acylated -imid,*,0
+Gly,GCC,Acylated -imid,Acylated,42.4
+Gly,GCC,Acylated -imid,Deacylated,52.5
+Gly,GCC,Acylated +imid,Chemi Ligated,34.4
+Gly,GCC,Acylated +imid,*,4
+Gly,GCC,Acylated +imid,Acylated,0
+Gly,GCC,Acylated +imid,Deacylated,61.6
+Gly,GCC,50/50 input,Chemi Ligated,0
+Gly,GCC,50/50 input,*,0
+Gly,GCC,50/50 input,Acylated,25.4
+Gly,GCC,50/50 input,Deacylated,74.6
+Gly,GCC,50/50 -imid,Chemi Ligated,0
+Gly,GCC,50/50 -imid,*,0
+Gly,GCC,50/50 -imid,Acylated,17.6
+Gly,GCC,50/50 -imid,Deacylated,82.4
+Gly,GCC,50/50 +imid,Chemi Ligated,11.3
+Gly,GCC,50/50 +imid,*,1.4
+Gly,GCC,50/50 +imid,Acylated,0
+Gly,GCC,50/50 +imid,Deacylated,87.3
+His,GTG,Deacylated input,Chemi Ligated,0
+His,GTG,Deacylated input,*,0
+His,GTG,Deacylated input,Acylated,0
+His,GTG,Deacylated input,Deacylated,100
+His,GTG,Deacylated -imid,Chemi Ligated,0
+His,GTG,Deacylated -imid,*,0
+His,GTG,Deacylated -imid,Acylated,8.574839597
+His,GTG,Deacylated -imid,Deacylated,91.4251604
+His,GTG,Deacylated +imid,Chemi Ligated,3.543229177
+His,GTG,Deacylated +imid,*,0
+His,GTG,Deacylated +imid,Acylated,0
+His,GTG,Deacylated +imid,Deacylated,96.45677082
+His,GTG,Acylated input,Chemi Ligated,0
+His,GTG,Acylated input,*,0
+His,GTG,Acylated input,Acylated,42.29589506
+His,GTG,Acylated input,Deacylated,57.70410494
+His,GTG,Acylated -imid,Chemi Ligated,0
+His,GTG,Acylated -imid,*,0
+His,GTG,Acylated -imid,Acylated,37.56001246
+His,GTG,Acylated -imid,Deacylated,62.43998754
+His,GTG,Acylated +imid,Chemi Ligated,22.58015179
+His,GTG,Acylated +imid,*,2.410546912
+His,GTG,Acylated +imid,Acylated,10.84365615
+His,GTG,Acylated +imid,Deacylated,64.16564515
+His,GTG,50/50 input,Chemi Ligated,0
+His,GTG,50/50 input,*,0
+His,GTG,50/50 input,Acylated,30.57062304
+His,GTG,50/50 input,Deacylated,69.42937696
+His,GTG,50/50 -imid,Chemi Ligated,0
+His,GTG,50/50 -imid,*,0
+His,GTG,50/50 -imid,Acylated,21.63338945
+His,GTG,50/50 -imid,Deacylated,78.36661055
+His,GTG,50/50 +imid,Chemi Ligated,9.913825331
+His,GTG,50/50 +imid,*,1.211812489
+His,GTG,50/50 +imid,Acylated,0.15395523
+His,GTG,50/50 +imid,Deacylated,88.72040695
+Pro,TGG,Deacylated input,Large unknown band,4.925336209
+Pro,TGG,Deacylated input,Chemi Ligated,0
+Pro,TGG,Deacylated input,*,2.120572617
+Pro,TGG,Deacylated input,Unligated,92.95409117
+Pro,TGG,Deacylated -imid,Large unknown band,0
+Pro,TGG,Deacylated -imid,Chemi Ligated,0
+Pro,TGG,Deacylated -imid,*,0.329887213
+Pro,TGG,Deacylated -imid,Unligated,99.67011279
+Pro,TGG,Deacylated +imid,Large unknown band,0
+Pro,TGG,Deacylated +imid,Chemi Ligated,0
+Pro,TGG,Deacylated +imid,*,0
+Pro,TGG,Deacylated +imid,Unligated,100
+Pro,TGG,Acylated input,Large unknown band,0
+Pro,TGG,Acylated input,Chemi Ligated,0
+Pro,TGG,Acylated input,*,1.261561061
+Pro,TGG,Acylated input,Unligated,98.73843894
+Pro,TGG,Acylated -imid,Large unknown band,0
+Pro,TGG,Acylated -imid,Chemi Ligated,0
+Pro,TGG,Acylated -imid,*,0.974059283
+Pro,TGG,Acylated -imid,Unligated,99.02594072
+Pro,TGG,Acylated +imid,Large unknown band,0
+Pro,TGG,Acylated +imid,Chemi Ligated,24.63797065
+Pro,TGG,Acylated +imid,*,4.645960604
+Pro,TGG,Acylated +imid,Unligated,70.71606875
+Pro,TGG,50/50 input,Large unknown band,2.163737263
+Pro,TGG,50/50 input,Chemi Ligated,0
+Pro,TGG,50/50 input,*,0.695670478
+Pro,TGG,50/50 input,Unligated,97.14059226
+Pro,TGG,50/50 -imid,Large unknown band,0
+Pro,TGG,50/50 -imid,Chemi Ligated,0
+Pro,TGG,50/50 -imid,*,0.768825283
+Pro,TGG,50/50 -imid,Unligated,99.23117472
+Pro,TGG,50/50 +imid,Large unknown band,0
+Pro,TGG,50/50 +imid,Chemi Ligated,14.79087035
+Pro,TGG,50/50 +imid,*,2.813541176
+Pro,TGG,50/50 +imid,Unligated,82.39558847
+Leu,CAA,Deacylated input,Chemi Ligated,0
+Leu,CAA,Deacylated input,*,0
+Leu,CAA,Deacylated input,Acylated,0
+Leu,CAA,Deacylated input,Deacylated,100
+Leu,CAA,Deacylated -imid,Chemi Ligated,0
+Leu,CAA,Deacylated -imid,*,0
+Leu,CAA,Deacylated -imid,Acylated,8.552075753
+Leu,CAA,Deacylated -imid,Deacylated,91.44792425
+Leu,CAA,Deacylated +imid,Chemi Ligated,2.282432443
+Leu,CAA,Deacylated +imid,*,0
+Leu,CAA,Deacylated +imid,Acylated,9.956529497
+Leu,CAA,Deacylated +imid,Deacylated,87.76103806
+Leu,CAA,Acylated input,Chemi Ligated,0
+Leu,CAA,Acylated input,*,0
+Leu,CAA,Acylated input,Acylated,54.70060702
+Leu,CAA,Acylated input,Deacylated,45.29939298
+Leu,CAA,Acylated -imid,Chemi Ligated,0
+Leu,CAA,Acylated -imid,*,0
+Leu,CAA,Acylated -imid,Acylated,53.39281444
+Leu,CAA,Acylated -imid,Deacylated,46.60718556
+Leu,CAA,Acylated +imid,Chemi Ligated,34.30449352
+Leu,CAA,Acylated +imid,*,5.811709874
+Leu,CAA,Acylated +imid,Acylated,20.8176941
+Leu,CAA,Acylated +imid,Deacylated,39.06610251
+Leu,CAA,50/50 input,Chemi Ligated,0
+Leu,CAA,50/50 input,*,0
+Leu,CAA,50/50 input,Acylated,43.81074918
+Leu,CAA,50/50 input,Deacylated,56.18925082
+Leu,CAA,50/50 -imid,Chemi Ligated,0
+Leu,CAA,50/50 -imid,*,0
+Leu,CAA,50/50 -imid,Acylated,33.56688927
+Leu,CAA,50/50 -imid,Deacylated,66.43311073
+Leu,CAA,50/50 +imid,Chemi Ligated,18.91144018
+Leu,CAA,50/50 +imid,*,3.18013007
+Leu,CAA,50/50 +imid,Acylated,14.24865625
+Leu,CAA,50/50 +imid,Deacylated,63.6597735
+Asn,GTT,Deacylated input,Chemi Ligated,0
+Asn,GTT,Deacylated input,*,0
+Asn,GTT,Deacylated input,Acylated,0
+Asn,GTT,Deacylated input,Deacylated,100
+Asn,GTT,Deacylated -imid,Chemi Ligated,0
+Asn,GTT,Deacylated -imid,*,0
+Asn,GTT,Deacylated -imid,Acylated,0
+Asn,GTT,Deacylated -imid,Deacylated,100
+Asn,GTT,Deacylated +imid,Chemi Ligated,0
+Asn,GTT,Deacylated +imid,*,0
+Asn,GTT,Deacylated +imid,Acylated,0
+Asn,GTT,Deacylated +imid,Deacylated,100
+Asn,GTT,Acylated input,Chemi Ligated,0
+Asn,GTT,Acylated input,*,0
+Asn,GTT,Acylated input,Acylated,20.99468559
+Asn,GTT,Acylated input,Deacylated,79.00531441
+Asn,GTT,Acylated -imid,Chemi Ligated,0
+Asn,GTT,Acylated -imid,*,0
+Asn,GTT,Acylated -imid,Acylated,15.90270979
+Asn,GTT,Acylated -imid,Deacylated,84.09729021
+Asn,GTT,Acylated +imid,Chemi Ligated,32.61819285
+Asn,GTT,Acylated +imid,*,4.775268646
+Asn,GTT,Acylated +imid,Acylated,0
+Asn,GTT,Acylated +imid,Deacylated,62.60653851
+Asn,GTT,50/50 input,Chemi Ligated,0
+Asn,GTT,50/50 input,*,0
+Asn,GTT,50/50 input,Acylated,22.62598262
+Asn,GTT,50/50 input,Deacylated,77.37401738
+Asn,GTT,50/50 -imid,Chemi Ligated,0
+Asn,GTT,50/50 -imid,*,0
+Asn,GTT,50/50 -imid,Acylated,17.77778067
+Asn,GTT,50/50 -imid,Deacylated,82.22221933
+Asn,GTT,50/50 +imid,Chemi Ligated,21.65245559
+Asn,GTT,50/50 +imid,*,2.014217816
+Asn,GTT,50/50 +imid,Acylated,0
+Asn,GTT,50/50 +imid,Deacylated,76.3333266
+Cys,GCA,Deacylated input,Chemi Ligated,0
+Cys,GCA,Deacylated input,*,0
+Cys,GCA,Deacylated input,Acylated,0
+Cys,GCA,Deacylated input,Deacylated,100
+Cys,GCA,Deacylated -imid,Chemi Ligated,0
+Cys,GCA,Deacylated -imid,*,0
+Cys,GCA,Deacylated -imid,Acylated,0
+Cys,GCA,Deacylated -imid,Deacylated,100
+Cys,GCA,Deacylated +imid,Chemi Ligated,0.571640051
+Cys,GCA,Deacylated +imid,*,0
+Cys,GCA,Deacylated +imid,Acylated,0
+Cys,GCA,Deacylated +imid,Deacylated,99.42835995
+Cys,GCA,Acylated input,Chemi Ligated,0
+Cys,GCA,Acylated input,*,0
+Cys,GCA,Acylated input,Acylated,16.74870929
+Cys,GCA,Acylated input,Deacylated,83.25129071
+Cys,GCA,Acylated -imid,Chemi Ligated,0
+Cys,GCA,Acylated -imid,*,0
+Cys,GCA,Acylated -imid,Acylated,14.29108144
+Cys,GCA,Acylated -imid,Deacylated,85.70891856
+Cys,GCA,Acylated +imid,Chemi Ligated,21.44142321
+Cys,GCA,Acylated +imid,*,3.430765399
+Cys,GCA,Acylated +imid,Acylated,0
+Cys,GCA,Acylated +imid,Deacylated,75.12781139
+Cys,GCA,50/50 input,Chemi Ligated,0
+Cys,GCA,50/50 input,*,0
+Cys,GCA,50/50 input,Acylated,13.28272121
+Cys,GCA,50/50 input,Deacylated,86.71727879
+Cys,GCA,50/50 -imid,Chemi Ligated,0
+Cys,GCA,50/50 -imid,*,0
+Cys,GCA,50/50 -imid,Acylated,9.637252903
+Cys,GCA,50/50 -imid,Deacylated,90.3627471
+Cys,GCA,50/50 +imid,Chemi Ligated,12.4750633
+Cys,GCA,50/50 +imid,*,0.692275696
+Cys,GCA,50/50 +imid,Acylated,0
+Cys,GCA,50/50 +imid,Deacylated,86.83266101
+Phe,GAA,Deacylated input,Chemi Ligated,0
+Phe,GAA,Deacylated input,Acylated,0
+Phe,GAA,Deacylated input,Deacylated 1,58.79614828
+Phe,GAA,Deacylated input,Deacylated 2,41.20385172
+Phe,GAA,Deacylated -imid,Chemi Ligated,0
+Phe,GAA,Deacylated -imid,Acylated,5.205117731
+Phe,GAA,Deacylated -imid,Deacylated 1,51.33740696
+Phe,GAA,Deacylated -imid,Deacylated 2,43.4574753
+Phe,GAA,Deacylated +imid,Chemi Ligated,2.001430889
+Phe,GAA,Deacylated +imid,Acylated,4.613156837
+Phe,GAA,Deacylated +imid,Deacylated 1,48.72686742
+Phe,GAA,Deacylated +imid,Deacylated 2,44.65854485
+Phe,GAA,Acylated input,Chemi Ligated,0
+Phe,GAA,Acylated input,Acylated,31.68791114
+Phe,GAA,Acylated input,Deacylated 1,39.88875967
+Phe,GAA,Acylated input,Deacylated 2,28.42332919
+Phe,GAA,Acylated -imid,Chemi Ligated,0
+Phe,GAA,Acylated -imid,Acylated,31.21635435
+Phe,GAA,Acylated -imid,Deacylated 1,41.29950999
+Phe,GAA,Acylated -imid,Deacylated 2,27.48413566
+Phe,GAA,Acylated +imid,Chemi Ligated,20.31027963
+Phe,GAA,Acylated +imid,Acylated,12.06756431
+Phe,GAA,Acylated +imid,Deacylated 1,40.4927261
+Phe,GAA,Acylated +imid,Deacylated 2,27.12942996
+Phe,GAA,50/50 input,Chemi Ligated,0
+Phe,GAA,50/50 input,Acylated,26.24689528
+Phe,GAA,50/50 input,Deacylated 1,43.15184928
+Phe,GAA,50/50 input,Deacylated 2,30.60125544
+Phe,GAA,50/50 -imid,Chemi Ligated,0
+Phe,GAA,50/50 -imid,Acylated,19.19319524
+Phe,GAA,50/50 -imid,Deacylated 1,48.4485796
+Phe,GAA,50/50 -imid,Deacylated 2,32.35822516
+Phe,GAA,50/50 +imid,Chemi Ligated,10.60443069
+Phe,GAA,50/50 +imid,Acylated,7.587148267
+Phe,GAA,50/50 +imid,Deacylated 1,53.79646931
+Phe,GAA,50/50 +imid,Deacylated 2,28.01195173
+Tyr,GTA,Deacylated input,Chemi Ligated,0
+Tyr,GTA,Deacylated input,*,0
+Tyr,GTA,Deacylated input,Acylated,0
+Tyr,GTA,Deacylated input,Deacylated,100
+Tyr,GTA,Deacylated -imid,Chemi Ligated,0
+Tyr,GTA,Deacylated -imid,*,0
+Tyr,GTA,Deacylated -imid,Acylated,4.380272486
+Tyr,GTA,Deacylated -imid,Deacylated,95.61972751
+Tyr,GTA,Deacylated +imid,Chemi Ligated,5.757359921
+Tyr,GTA,Deacylated +imid,*,0
+Tyr,GTA,Deacylated +imid,Acylated,3.530178032
+Tyr,GTA,Deacylated +imid,Deacylated,90.71246205
+Tyr,GTA,Acylated input,Chemi Ligated,0
+Tyr,GTA,Acylated input,*,0
+Tyr,GTA,Acylated input,Acylated,45.55033253
+Tyr,GTA,Acylated input,Deacylated,54.44966747
+Tyr,GTA,Acylated -imid,Chemi Ligated,0
+Tyr,GTA,Acylated -imid,*,0
+Tyr,GTA,Acylated -imid,Acylated,46.08810499
+Tyr,GTA,Acylated -imid,Deacylated,53.91189501
+Tyr,GTA,Acylated +imid,Chemi Ligated,38.22683205
+Tyr,GTA,Acylated +imid,*,5.670659185
+Tyr,GTA,Acylated +imid,Acylated,10.71475846
+Tyr,GTA,Acylated +imid,Deacylated,45.38775031
+Tyr,GTA,50/50 input,Chemi Ligated,0
+Tyr,GTA,50/50 input,*,0
+Tyr,GTA,50/50 input,Acylated,34.93327413
+Tyr,GTA,50/50 input,Deacylated,65.06672587
+Tyr,GTA,50/50 -imid,Chemi Ligated,0
+Tyr,GTA,50/50 -imid,*,0
+Tyr,GTA,50/50 -imid,Acylated,25.57001157
+Tyr,GTA,50/50 -imid,Deacylated,74.42998843
+Tyr,GTA,50/50 +imid,Chemi Ligated,19.19539972
+Tyr,GTA,50/50 +imid,*,2.378216083
+Tyr,GTA,50/50 +imid,Acylated,5.248661517
+Tyr,GTA,50/50 +imid,Deacylated,73.17772268
+Glu,TTC,Deacylated input,Chemi Ligated,0
+Glu,TTC,Deacylated input,Unligated,100
+Glu,TTC,Deacylated -imid,Chemi Ligated,0
+Glu,TTC,Deacylated -imid,Unligated,100
+Glu,TTC,Deacylated +imid,Chemi Ligated,0
+Glu,TTC,Deacylated +imid,Unligated,100
+Glu,TTC,Acylated input,Chemi Ligated,0
+Glu,TTC,Acylated input,Unligated,100
+Glu,TTC,Acylated -imid,Chemi Ligated,0
+Glu,TTC,Acylated -imid,Unligated,100
+Glu,TTC,Acylated +imid,Chemi Ligated,35.21368811
+Glu,TTC,Acylated +imid,Unligated,64.78631189
+Glu,TTC,50/50 input,Chemi Ligated,0
+Glu,TTC,50/50 input,Unligated,100
+Glu,TTC,50/50 -imid,Chemi Ligated,0
+Glu,TTC,50/50 -imid,Unligated,100
+Glu,TTC,50/50 +imid,Chemi Ligated,0
+Glu,TTC,50/50 +imid,Unligated,100
+Ser,GCT,Deacylated input,Chemi Ligated,0
+Ser,GCT,Deacylated input,*,0
+Ser,GCT,Deacylated input,Unligated,100
+Ser,GCT,Deacylated -imid,Chemi Ligated,0
+Ser,GCT,Deacylated -imid,*,0
+Ser,GCT,Deacylated -imid,Unligated,100
+Ser,GCT,Deacylated +imid,Chemi Ligated,11.58845629
+Ser,GCT,Deacylated +imid,*,0
+Ser,GCT,Deacylated +imid,Unligated,88.41154371
+Ser,GCT,Acylated input,Chemi Ligated,0
+Ser,GCT,Acylated input,*,0
+Ser,GCT,Acylated input,Unligated,100
+Ser,GCT,Acylated -imid,Chemi Ligated,0
+Ser,GCT,Acylated -imid,*,0
+Ser,GCT,Acylated -imid,Unligated,100
+Ser,GCT,Acylated +imid,Chemi Ligated,56.86355277
+Ser,GCT,Acylated +imid,*,6.232888753
+Ser,GCT,Acylated +imid,Unligated,36.90355847
+Ser,GCT,50/50 input,Chemi Ligated,0
+Ser,GCT,50/50 input,*,0
+Ser,GCT,50/50 input,Unligated,100
+Ser,GCT,50/50 -imid,Chemi Ligated,0
+Ser,GCT,50/50 -imid,*,0
+Ser,GCT,50/50 -imid,Unligated,100
+Ser,GCT,50/50 +imid,Chemi Ligated,42.16919049
+Ser,GCT,50/50 +imid,*,5.12411733
+Ser,GCT,50/50 +imid,Unligated,52.70669218
+Ile,TAT,Deacylated input,Chemi Ligated,0
+Ile,TAT,Deacylated input,Acylated,0
+Ile,TAT,Deacylated input,Deacylated,100
+Ile,TAT,Deacylated -imid,Chemi Ligated,0
+Ile,TAT,Deacylated -imid,Acylated,16.60599316
+Ile,TAT,Deacylated -imid,Deacylated,83.39400684
+Ile,TAT,Deacylated +imid,Chemi Ligated,0
+Ile,TAT,Deacylated +imid,Acylated,13.75145631
+Ile,TAT,Deacylated +imid,Deacylated,86.24854369
+Ile,TAT,Acylated input,Chemi Ligated,0
+Ile,TAT,Acylated input,Acylated,38.58698838
+Ile,TAT,Acylated input,Deacylated,61.41301162
+Ile,TAT,Acylated -imid,Chemi Ligated,0
+Ile,TAT,Acylated -imid,Acylated,43.91144958
+Ile,TAT,Acylated -imid,Deacylated,56.08855042
+Ile,TAT,Acylated +imid,Chemi Ligated,36.53610146
+Ile,TAT,Acylated +imid,Acylated,18.64746161
+Ile,TAT,Acylated +imid,Deacylated,44.81643693
+Ile,TAT,50/50 input,Chemi Ligated,0
+Ile,TAT,50/50 input,Acylated,38.07495862
+Ile,TAT,50/50 input,Deacylated,61.92504138
+Ile,TAT,50/50 -imid,Chemi Ligated,0
+Ile,TAT,50/50 -imid,Acylated,31.21850012
+Ile,TAT,50/50 -imid,Deacylated,68.78149988
+Ile,TAT,50/50 +imid,Chemi Ligated,11.95134163
+Ile,TAT,50/50 +imid,Acylated,19.93602321
+Ile,TAT,50/50 +imid,Deacylated,68.11263516
+Gln,TTG,Deacylated input,Chemi Ligated,0
+Gln,TTG,Deacylated input,*,0
+Gln,TTG,Deacylated input,Acylated,0
+Gln,TTG,Deacylated input,Deacylated,100
+Gln,TTG,Deacylated -imid,Chemi Ligated,0
+Gln,TTG,Deacylated -imid,*,0
+Gln,TTG,Deacylated -imid,Acylated,7.284000885
+Gln,TTG,Deacylated -imid,Deacylated,92.71599912
+Gln,TTG,Deacylated +imid,Chemi Ligated,4.352174688
+Gln,TTG,Deacylated +imid,*,0
+Gln,TTG,Deacylated +imid,Acylated,0
+Gln,TTG,Deacylated +imid,Deacylated,95.64782531
+Gln,TTG,Acylated input,Chemi Ligated,0
+Gln,TTG,Acylated input,*,0
+Gln,TTG,Acylated input,Acylated,51.13156978
+Gln,TTG,Acylated input,Deacylated,48.86843022
+Gln,TTG,Acylated -imid,Chemi Ligated,0
+Gln,TTG,Acylated -imid,*,0
+Gln,TTG,Acylated -imid,Acylated,47.25294868
+Gln,TTG,Acylated -imid,Deacylated,52.74705132
+Gln,TTG,Acylated +imid,Chemi Ligated,48.14290554
+Gln,TTG,Acylated +imid,*,7.68465586
+Gln,TTG,Acylated +imid,Acylated,0
+Gln,TTG,Acylated +imid,Deacylated,44.1724386
+Gln,TTG,50/50 input,Chemi Ligated,0
+Gln,TTG,50/50 input,*,0
+Gln,TTG,50/50 input,Acylated,45.94175611
+Gln,TTG,50/50 input,Deacylated,54.05824389
+Gln,TTG,50/50 -imid,Chemi Ligated,0
+Gln,TTG,50/50 -imid,*,0
+Gln,TTG,50/50 -imid,Acylated,35.84007924
+Gln,TTG,50/50 -imid,Deacylated,64.15992076
+Gln,TTG,50/50 +imid,Chemi Ligated,32.81095357
+Gln,TTG,50/50 +imid,*,4.169715229
+Gln,TTG,50/50 +imid,Acylated,0
+Gln,TTG,50/50 +imid,Deacylated,63.0193312
+Thr,TGT,Deacylated input,Chemi Ligated,0
+Thr,TGT,Deacylated input,*,0
+Thr,TGT,Deacylated input,Acylated,0
+Thr,TGT,Deacylated input,Deacylated,100
+Thr,TGT,Deacylated -imid,Chemi Ligated,0
+Thr,TGT,Deacylated -imid,*,0
+Thr,TGT,Deacylated -imid,Acylated,16.75017848
+Thr,TGT,Deacylated -imid,Deacylated,83.24982152
+Thr,TGT,Deacylated +imid,Chemi Ligated,9.699779195
+Thr,TGT,Deacylated +imid,*,0
+Thr,TGT,Deacylated +imid,Acylated,11.22494558
+Thr,TGT,Deacylated +imid,Deacylated,79.07527522
+Thr,TGT,Acylated input,Chemi Ligated,0
+Thr,TGT,Acylated input,*,0
+Thr,TGT,Acylated input,Acylated,53.48425393
+Thr,TGT,Acylated input,Deacylated,46.51574607
+Thr,TGT,Acylated -imid,Chemi Ligated,0
+Thr,TGT,Acylated -imid,*,0
+Thr,TGT,Acylated -imid,Acylated,51.72136799
+Thr,TGT,Acylated -imid,Deacylated,48.27863201
+Thr,TGT,Acylated +imid,Chemi Ligated,49.46782377
+Thr,TGT,Acylated +imid,*,5.601398507
+Thr,TGT,Acylated +imid,Acylated,10.78158395
+Thr,TGT,Acylated +imid,Deacylated,34.14919378
+Thr,TGT,50/50 input,Chemi Ligated,0
+Thr,TGT,50/50 input,*,0
+Thr,TGT,50/50 input,Acylated,41.08843438
+Thr,TGT,50/50 input,Deacylated,58.91156562
+Thr,TGT,50/50 -imid,Chemi Ligated,0
+Thr,TGT,50/50 -imid,*,0
+Thr,TGT,50/50 -imid,Acylated,32.8771123
+Thr,TGT,50/50 -imid,Deacylated,67.1228877
+Thr,TGT,50/50 +imid,Chemi Ligated,30.21247547
+Thr,TGT,50/50 +imid,*,2.606886066
+Thr,TGT,50/50 +imid,Acylated,8.705234256
+Thr,TGT,50/50 +imid,Deacylated,58.4754042
+Arg,TCT,Deacylated input,Chemi Ligated,0
+Arg,TCT,Deacylated input,Acylated,0
+Arg,TCT,Deacylated input,Deacylated,100
+Arg,TCT,Deacylated -imid,Chemi Ligated,0
+Arg,TCT,Deacylated -imid,Acylated,0
+Arg,TCT,Deacylated -imid,Deacylated,100
+Arg,TCT,Deacylated +imid,Chemi Ligated,0
+Arg,TCT,Deacylated +imid,Acylated,0
+Arg,TCT,Deacylated +imid,Deacylated,100
+Arg,TCT,Acylated input,Chemi Ligated,0
+Arg,TCT,Acylated input,Acylated,55.21255477
+Arg,TCT,Acylated input,Deacylated,44.78744523
+Arg,TCT,Acylated -imid,Chemi Ligated,0
+Arg,TCT,Acylated -imid,Acylated,52.42114736
+Arg,TCT,Acylated -imid,Deacylated,47.57885264
+Arg,TCT,Acylated +imid,Chemi Ligated,73.58626404
+Arg,TCT,Acylated +imid,Acylated,0
+Arg,TCT,Acylated +imid,Deacylated,26.41373596
+Arg,TCT,50/50 input,Chemi Ligated,0
+Arg,TCT,50/50 input,Acylated,60.1243218
+Arg,TCT,50/50 input,Deacylated,39.8756782
+Arg,TCT,50/50 -imid,Chemi Ligated,0
+Arg,TCT,50/50 -imid,Acylated,46.55256647
+Arg,TCT,50/50 -imid,Deacylated,53.44743353
+Arg,TCT,50/50 +imid,Chemi Ligated,53.37911944
+Arg,TCT,50/50 +imid,Acylated,0
+Arg,TCT,50/50 +imid,Deacylated,46.62088056
+Asp,GTC,Deacylated input,Chemi Ligated,0
+Asp,GTC,Deacylated input,Unligated,100
+Asp,GTC,Deacylated -imid,Chemi Ligated,0
+Asp,GTC,Deacylated -imid,Unligated,100
+Asp,GTC,Deacylated +imid,Chemi Ligated,0
+Asp,GTC,Deacylated +imid,Unligated,100
+Asp,GTC,Acylated input,Chemi Ligated,0
+Asp,GTC,Acylated input,Unligated,100
+Asp,GTC,Acylated -imid,Chemi Ligated,0
+Asp,GTC,Acylated -imid,Unligated,100
+Asp,GTC,Acylated +imid,Chemi Ligated,35.89005791
+Asp,GTC,Acylated +imid,Unligated,64.10994209
+Asp,GTC,50/50 input,Chemi Ligated,0
+Asp,GTC,50/50 input,Unligated,100
+Asp,GTC,50/50 -imid,Chemi Ligated,0
+Asp,GTC,50/50 -imid,Unligated,100
+Asp,GTC,50/50 +imid,Chemi Ligated,0
+Asp,GTC,50/50 +imid,Unligated,100
+Lys,TTT,Deacylated input,Chemi Ligated,0
+Lys,TTT,Deacylated input,Acylated,0
+Lys,TTT,Deacylated input,Deacylated,100
+Lys,TTT,Deacylated -imid,Chemi Ligated,0
+Lys,TTT,Deacylated -imid,Acylated,0
+Lys,TTT,Deacylated -imid,Deacylated,100
+Lys,TTT,Deacylated +imid,Chemi Ligated,0
+Lys,TTT,Deacylated +imid,Acylated,0
+Lys,TTT,Deacylated +imid,Deacylated,100
+Lys,TTT,Acylated input,Chemi Ligated,0
+Lys,TTT,Acylated input,Acylated,65.00042585
+Lys,TTT,Acylated input,Deacylated,34.99957415
+Lys,TTT,Acylated -imid,Chemi Ligated,0
+Lys,TTT,Acylated -imid,Acylated,61.58355004
+Lys,TTT,Acylated -imid,Deacylated,38.41644996
+Lys,TTT,Acylated +imid,Chemi Ligated,57.22436011
+Lys,TTT,Acylated +imid,Acylated,0
+Lys,TTT,Acylated +imid,Deacylated,42.77563989
+Lys,TTT,50/50 input,Chemi Ligated,0
+Lys,TTT,50/50 input,Acylated,62.58472117
+Lys,TTT,50/50 input,Deacylated,37.41527883
+Lys,TTT,50/50 -imid,Chemi Ligated,0
+Lys,TTT,50/50 -imid,Acylated,52.72020409
+Lys,TTT,50/50 -imid,Deacylated,47.27979591
+Lys,TTT,50/50 +imid,Chemi Ligated,36.83571809
+Lys,TTT,50/50 +imid,Acylated,0
+Lys,TTT,50/50 +imid,Deacylated,63.16428191
+iMet,CAT,Deacylated input,Chemi Ligated,0
+iMet,CAT,Deacylated input,*,0
+iMet,CAT,Deacylated input,Acylated,0
+iMet,CAT,Deacylated input,Deacylated,100
+iMet,CAT,Deacylated -imid,Chemi Ligated,0
+iMet,CAT,Deacylated -imid,*,0
+iMet,CAT,Deacylated -imid,Acylated,9.219403632
+iMet,CAT,Deacylated -imid,Deacylated,90.78059637
+iMet,CAT,Deacylated +imid,Chemi Ligated,1.911713003
+iMet,CAT,Deacylated +imid,*,0
+iMet,CAT,Deacylated +imid,Acylated,10.4366513
+iMet,CAT,Deacylated +imid,Deacylated,87.6516357
+iMet,CAT,Acylated input,Chemi Ligated,0
+iMet,CAT,Acylated input,*,0
+iMet,CAT,Acylated input,Acylated,43.53029822
+iMet,CAT,Acylated input,Deacylated,56.46970178
+iMet,CAT,Acylated -imid,Chemi Ligated,0
+iMet,CAT,Acylated -imid,*,0
+iMet,CAT,Acylated -imid,Acylated,43.16629868
+iMet,CAT,Acylated -imid,Deacylated,56.83370132
+iMet,CAT,Acylated +imid,Chemi Ligated,32.99900608
+iMet,CAT,Acylated +imid,*,4.248193201
+iMet,CAT,Acylated +imid,Acylated,13.95989358
+iMet,CAT,Acylated +imid,Deacylated,48.79290714
+iMet,CAT,50/50 input,Chemi Ligated,0
+iMet,CAT,50/50 input,*,0
+iMet,CAT,50/50 input,Acylated,35.98806159
+iMet,CAT,50/50 input,Deacylated,64.01193841
+iMet,CAT,50/50 -imid,Chemi Ligated,0
+iMet,CAT,50/50 -imid,*,0
+iMet,CAT,50/50 -imid,Acylated,26.38151505
+iMet,CAT,50/50 -imid,Deacylated,73.61848495
+iMet,CAT,50/50 +imid,Chemi Ligated,18.50815175
+iMet,CAT,50/50 +imid,*,1.938156299
+iMet,CAT,50/50 +imid,Acylated,4.402058284
+iMet,CAT,50/50 +imid,Deacylated,75.15163367
+Ala,TGC,Deacylated input,Chemi Ligated,0
+Ala,TGC,Deacylated input,*,0
+Ala,TGC,Deacylated input,Acylated,0
+Ala,TGC,Deacylated input,Deacylated,100
+Ala,TGC,Deacylated -imid,Chemi Ligated,0
+Ala,TGC,Deacylated -imid,*,0
+Ala,TGC,Deacylated -imid,Acylated,0
+Ala,TGC,Deacylated -imid,Deacylated,100
+Ala,TGC,Deacylated +imid,Chemi Ligated,0
+Ala,TGC,Deacylated +imid,*,0
+Ala,TGC,Deacylated +imid,Acylated,0
+Ala,TGC,Deacylated +imid,Deacylated,100
+Ala,TGC,Acylated input,Chemi Ligated,0
+Ala,TGC,Acylated input,*,0
+Ala,TGC,Acylated input,Acylated,36.72068337
+Ala,TGC,Acylated input,Deacylated,63.27931663
+Ala,TGC,Acylated -imid,Chemi Ligated,0
+Ala,TGC,Acylated -imid,*,0
+Ala,TGC,Acylated -imid,Acylated,34.29107874
+Ala,TGC,Acylated -imid,Deacylated,65.70892126
+Ala,TGC,Acylated +imid,Chemi Ligated,19.27849188
+Ala,TGC,Acylated +imid,*,1.661844429
+Ala,TGC,Acylated +imid,Acylated,10.45050781
+Ala,TGC,Acylated +imid,Deacylated,68.60915588
+Ala,TGC,50/50 input,Chemi Ligated,0
+Ala,TGC,50/50 input,*,0
+Ala,TGC,50/50 input,Acylated,22.90911671
+Ala,TGC,50/50 input,Deacylated,77.09088329
+Ala,TGC,50/50 -imid,Chemi Ligated,0
+Ala,TGC,50/50 -imid,*,0
+Ala,TGC,50/50 -imid,Acylated,14.05983194
+Ala,TGC,50/50 -imid,Deacylated,85.94016806
+Ala,TGC,50/50 +imid,Chemi Ligated,11.31909241
+Ala,TGC,50/50 +imid,*,0.666600332
+Ala,TGC,50/50 +imid,Acylated,3.221226173
+Ala,TGC,50/50 +imid,Deacylated,84.79308109
+Val,AAC,Deacylated input,Chemi Ligated 1,0
+Val,AAC,Deacylated input,Chemi Ligated 2,0
+Val,AAC,Deacylated input,*,0
+Val,AAC,Deacylated input,Acylated,0
+Val,AAC,Deacylated input,Deacylated 1,100
+Val,AAC,Deacylated input,Deacylated 2,0
+Val,AAC,Deacylated -imid,Chemi Ligated 1,0
+Val,AAC,Deacylated -imid,Chemi Ligated 2,0
+Val,AAC,Deacylated -imid,*,0
+Val,AAC,Deacylated -imid,Acylated,33.56563719
+Val,AAC,Deacylated -imid,Deacylated 1,51.73807188
+Val,AAC,Deacylated -imid,Deacylated 2,14.69629092
+Val,AAC,Deacylated +imid,Chemi Ligated 1,4.452420072
+Val,AAC,Deacylated +imid,Chemi Ligated 2,5.806911406
+Val,AAC,Deacylated +imid,*,2.902326892
+Val,AAC,Deacylated +imid,Acylated,24.3508247
+Val,AAC,Deacylated +imid,Deacylated 1,46.46216994
+Val,AAC,Deacylated +imid,Deacylated 2,16.02534699
+Val,AAC,Acylated input,Chemi Ligated 1,0
+Val,AAC,Acylated input,Chemi Ligated 2,0
+Val,AAC,Acylated input,*,0
+Val,AAC,Acylated input,Acylated,58.40615746
+Val,AAC,Acylated input,Deacylated 1,41.59384254
+Val,AAC,Acylated input,Deacylated 2,0
+Val,AAC,Acylated -imid,Chemi Ligated 1,0
+Val,AAC,Acylated -imid,Chemi Ligated 2,0
+Val,AAC,Acylated -imid,*,0
+Val,AAC,Acylated -imid,Acylated,54.56116151
+Val,AAC,Acylated -imid,Deacylated 1,45.43883849
+Val,AAC,Acylated -imid,Deacylated 2,0
+Val,AAC,Acylated +imid,Chemi Ligated 1,18.35897215
+Val,AAC,Acylated +imid,Chemi Ligated 2,23.37298509
+Val,AAC,Acylated +imid,*,6.829086352
+Val,AAC,Acylated +imid,Acylated,20.30667118
+Val,AAC,Acylated +imid,Deacylated 1,31.13228524
+Val,AAC,Acylated +imid,Deacylated 2,0
+Val,AAC,50/50 input,Chemi Ligated 1,0
+Val,AAC,50/50 input,Chemi Ligated 2,0
+Val,AAC,50/50 input,*,0
+Val,AAC,50/50 input,Acylated,41.26105466
+Val,AAC,50/50 input,Deacylated 1,58.73894534
+Val,AAC,50/50 input,Deacylated 2,0
+Val,AAC,50/50 -imid,Chemi Ligated 1,0
+Val,AAC,50/50 -imid,Chemi Ligated 2,0
+Val,AAC,50/50 -imid,*,0
+Val,AAC,50/50 -imid,Acylated,31.35024134
+Val,AAC,50/50 -imid,Deacylated 1,68.64975866
+Val,AAC,50/50 -imid,Deacylated 2,0
+Val,AAC,50/50 +imid,Chemi Ligated 1,11.87239008
+Val,AAC,50/50 +imid,Chemi Ligated 2,10.99562865
+Val,AAC,50/50 +imid,*,4.925578628
+Val,AAC,50/50 +imid,Acylated,15.28184903
+Val,AAC,50/50 +imid,Deacylated 1,56.92455362
+Val,AAC,50/50 +imid,Deacylated 2,0
+Trp,CCA,Deacylated input,Chemi Ligated,0
+Trp,CCA,Deacylated input,*,0
+Trp,CCA,Deacylated input,Acylated,0
+Trp,CCA,Deacylated input,Deacylated,100
+Trp,CCA,Deacylated -imid,Chemi Ligated,0
+Trp,CCA,Deacylated -imid,*,0
+Trp,CCA,Deacylated -imid,Acylated,6.460502874
+Trp,CCA,Deacylated -imid,Deacylated,93.53949713
+Trp,CCA,Deacylated +imid,Chemi Ligated,0
+Trp,CCA,Deacylated +imid,*,0
+Trp,CCA,Deacylated +imid,Acylated,5.218990948
+Trp,CCA,Deacylated +imid,Deacylated,94.78100905
+Trp,CCA,Acylated input,Chemi Ligated,0
+Trp,CCA,Acylated input,*,0
+Trp,CCA,Acylated input,Acylated,55.0533092
+Trp,CCA,Acylated input,Deacylated,44.9466908
+Trp,CCA,Acylated -imid,Chemi Ligated,0
+Trp,CCA,Acylated -imid,*,0
+Trp,CCA,Acylated -imid,Acylated,52.72389333
+Trp,CCA,Acylated -imid,Deacylated,47.27610667
+Trp,CCA,Acylated +imid,Chemi Ligated,50.3519671
+Trp,CCA,Acylated +imid,*,4.169946428
+Trp,CCA,Acylated +imid,Acylated,13.22077816
+Trp,CCA,Acylated +imid,Deacylated,32.25730831
+Trp,CCA,50/50 input,Chemi Ligated,0
+Trp,CCA,50/50 input,*,0
+Trp,CCA,50/50 input,Acylated,38.83290844
+Trp,CCA,50/50 input,Deacylated,61.16709156
+Trp,CCA,50/50 -imid,Chemi Ligated,0
+Trp,CCA,50/50 -imid,*,0
+Trp,CCA,50/50 -imid,Acylated,26.44785429
+Trp,CCA,50/50 -imid,Deacylated,73.55214571
+Trp,CCA,50/50 +imid,Chemi Ligated,28.94420363
+Trp,CCA,50/50 +imid,*,2.560747196
+Trp,CCA,50/50 +imid,Acylated,3.970562424
+Trp,CCA,50/50 +imid,Deacylated,64.52448675

@@ -1,0 +1,169 @@
+---
+title: "White Radakovic Figure 3"
+author: "Laura White"
+date: "2024-11-20"
+output: html_document
+---
+```{r global options, include = FALSE}
+knitr::opts_chunk$set(message=FALSE)
+
+pkgs <- c("tidyverse",
+          "here",
+          "cowplot",
+          "purrr",
+          "ggrepel",
+          "FNN")
+
+# load packages
+invisible(lapply(pkgs, 
+                 library, 
+                 character.only = TRUE,
+                 warn.conflicts = FALSE,
+                 quietly = TRUE))
+
+theme_set(theme_cowplot())
+
+here::i_am("rmd/Figure3A.Rmd")
+```
+
+Define colors for tRNA plotting.
+```{r}
+# throw in our new color scheme
+aa_mapping <- c(
+  "Lysine" = "#56B4E9", "Lys" = "#56B4E9", "K" = "#56B4E9",
+  "Arginine" = "#0072B2", "Arg" = "#0072B2", "R" = "#0072B2",
+  "Aspartic acid" = "#ef3b2c", "Asp" = "#ef3b2c", "D" = "#ef3b2c",
+  "Glutamic acid" = "#a50f15", "Glu" = "#a50f15", "E" = "#a50f15",
+  "Phenylalanine" = "#d9d9d9", "Phe" = "#d9d9d9", "F" = "#d9d9d9",
+  "Tyrosine" = "#737373", "Tyr" = "#737373", "Y" = "#737373",
+  "Tryptophan" = "#252525", "Trp" = "#252525", "W" = "#252525",
+  "Glycine" = "#c7e9c0", "Gly" = "#c7e9c0", "G" = "#c7e9c0",
+  "Alanine" = "#a1d99b", "Ala" = "#a1d99b", "A" = "#a1d99b",
+  "Valine" = "#74c476", "Val" = "#74c476", "V" = "#74c476",
+  "Isoleucine" = "#238b45", "Ile" = "#238b45", "I" = "#238b45",
+  "Leucine" = "#00441b", "Leu" = "#00441b", "L" = "#00441b",
+  "Serine" = "#bcbddc", "Ser" = "#bcbddc", "S" = "#bcbddc",
+  "Threonine" = "#9e9ac8", "Thr" = "#9e9ac8", "T" = "#9e9ac8",
+  "Asparagine" = "#807dba", "Asn" = "#807dba", "N" = "#807dba",
+  "Glutamine" = "#4a1486", "Gln" = "#4a1486", "Q" = "#4a1486",
+  "Cysteine" = "#fff7bc", "Cys" = "#fff7bc", "C" = "#fff7bc",
+  "Histidine" = "#fee391", "His" = "#fee391", "H" = "#fee391",
+  "Methionine" = "#fec44f", "Met" = "#fec44f", "iMet" = "#fec44f", "M" = "#fec44f",
+  "Proline" = "#fe9929", "Pro" = "#fe9929", "P" = "#fe9929",
+  "Selenocysteine" = "#ec7014", "Sec" = "#ec7014", "U" = "#ec7014"
+)
+```
+Figure 3. Sequencing and analysis of budding yeast tRNAs via chemical-charging northern and aa-tRNA-seq.
+A: Correlation of tRNA aminoacylation (% charging) in budding yeast, as measured by acid northern in Fig. 1B (y-axis), and aa-tRNA-seq (mean and standard deviation of 3 replicates)
+
+Here is the densitometry for the acid charging northern with/without chemical ligation.
+```{r}
+read_csv(here("data/charging_northerns/CN4_densitometry.csv")) %>% 
+  rename_at(vars(5), ~"percent_charging") -> cn4
+
+cn4 <- cn4 %>%
+  mutate(input = case_when(
+    str_detect(Lane, "Acylated") ~ "untreated",
+    str_detect(Lane, "Deacylated") ~ "deacylated",
+    str_detect(Lane, "50/50") ~ "5050",
+    TRUE ~ NA_character_  # This will assign NA for rows that don't match any of the conditions\
+  ))
+
+cn4 <- cn4 %>%
+  mutate(prep = case_when(
+    str_detect(Lane, "input") ~ "input",
+    str_detect(Lane, "-") ~ "unligated",
+    str_detect(Lane, "\\+") ~ "chemligated",
+    TRUE ~ NA_character_  # This will assign NA for rows that don't match any of the conditions\
+  ))
+
+cn4 %>%
+  filter(prep == "chemligated" & input == "untreated") %>%
+  select(-Lane, -prep, -input) %>%
+  filter(!AA %in% c("Pro", "Glu", "Ser", "Asp")) %>%
+  pivot_wider(names_from = Band, values_from = percent_charging, values_fill = list(percent_charging = 0)) %>%
+  rename_with(~ "intermediate", matches("\\*")) %>%
+  rename(acylated =  Acylated) %>%
+  mutate(ligated = `Chemi Ligated` + `Chemi Ligated 1` + `Chemi Ligated 2`) %>%
+  mutate(deacylated = `Deacylated` + `Deacylated 1` + `Deacylated 2`) %>%
+  select(AA, anticodon, deacylated, acylated, intermediate, ligated) %>%
+  mutate(pct_fully_ligated = (ligated / (acylated + intermediate + ligated)) * 100) %>%
+  mutate(pct_shifted = ((ligated + intermediate) / (acylated + intermediate + ligated)) * 100) %>%
+  mutate(AA_anticodon = paste(AA, anticodon, sep = "-")) -> cleaned_subset
+```
+
+Here we read in in the Remora-classified percent charging data for our wild type yeast samples (without chemical deacylation), and tidy this data.
+```{r}
+remora <- read_tsv(here("data/2024_chemicaldeacylation/percent_charged_cca_model.tsv"))
+
+remora %>%
+  select(tRNA, unt1_percent_charg, unt2_percent_charg, unt3_percent_charg) %>%
+  pivot_longer(cols = starts_with("unt"),
+               names_to = "replicate",
+               values_to = "percent_charged") %>%
+  mutate(replicate = case_when(
+    replicate == "unt1_percent_charg" ~ "rep1",
+    replicate == "unt2_percent_charg" ~ "rep2",
+    replicate == "unt3_percent_charg" ~ "rep3"
+  )) %>%
+  rename(AA_anticodon = tRNA) -> remora_long
+```
+```{r}
+# Step 1: Calculate the mean and SE for percent_charged in wtsc_pct_seqed_summarized
+mean_sequencing_data <- remora_long %>%
+  mutate(AA_anticodon = str_replace(AA_anticodon, "_", "-")) %>%
+  group_by(AA_anticodon) %>%
+  summarise(
+    mean_percent_charged = mean(percent_charged, na.rm = TRUE),
+    se_percent_charged = sd(percent_charged, na.rm = TRUE) / sqrt(n())  # SE = SD / sqrt(n)
+  )
+
+# Step 2: Join with northern data (test)
+cleaned_subset %>%
+  select(AA_anticodon, deacylated) %>%
+  mutate(ncharged = 100 - deacylated) -> test
+
+# Perform the join and separate AA and anticodon
+merged_data <- mean_sequencing_data %>%
+  ungroup() %>%
+  separate(AA_anticodon, into = c("AA", "anticodon"), sep = "-", remove = FALSE) %>%
+  left_join(test, by = "AA_anticodon") %>%
+  filter(complete.cases(.))
+
+
+# Step 4: Perform the correlation test
+cor_test <- cor.test(merged_data$ncharged, merged_data$mean_percent_charged, use = "complete.obs")
+
+# Extract the correlation coefficient and p-value
+correlation <- cor_test$estimate
+p_value <- cor_test$p.value
+
+# Step 5: Create the scatter plot with error bars for SE
+ggplot(merged_data, aes(x = mean_percent_charged, y = ncharged)) +
+  geom_abline(intercept = 0, slope = 1, color = "grey90", linetype = "solid") +
+  geom_smooth(method = "lm", se = FALSE, color = "gray", linetype = "dashed") +
+  geom_errorbar(aes(xmin = mean_percent_charged - se_percent_charged, xmax = mean_percent_charged + se_percent_charged), color = "gray50", width = 0.2) +
+  geom_point(aes(color = AA), size = 3) +
+  geom_text_repel(aes(label = AA_anticodon)) +
+  scale_color_manual(values = aa_mapping) +
+  labs(
+    y = "% charging (northern)",
+    x = "% charging (sequencing)",
+    title = "",
+    color = "", shape = ""
+  ) +
+  xlim(0, 80) +  # Adjust axis limits as needed
+  ylim(0, 80) +  # Adjust axis limits as needed
+  theme_cowplot() +
+  coord_fixed(ratio = 1) +
+  theme(legend.position = "none",
+      plot.background = element_rect(fill = "white", color = NA),
+      panel.background = element_rect(fill = "white", color = NA),) +
+  # Add correlation coefficient and p-value as annotations
+  annotate("text", y = 15, x = 40, label = paste("r =", round(correlation, 2)), size = 5, hjust = 0) +
+  annotate("text", y = 10, x = 40, label = paste("p-val = ", format.pval(p_value, digits = 3, scientific = T)), size = 5, hjust = 0) -> plot
+
+
+# Now try saving the plot
+ggsave(here("figures", "Northerndensitometry3A.png"), plot = plot, width = 4, height = 4, units = "in")
+```
