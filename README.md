@@ -17,3 +17,6 @@ Note: while Figure 3 plots will currently render upon cloning this repository an
 ## Library preparation protocol
 A complete protocol for the sequencing approach (including EDC-activation of the 3´ adapter for chemical ligation, and chemical ligation conditions) is available on Benchling [here](https://benchling.com/protocols/1vXce4Gw/acylated-deacylated-trna-library-preparation-for-rna004-sequencing-final).
 
+## Analysis pipeline
+
+A Snakemake analysis pipieline is available at https://github.com/rnabioco/aa-tRNA-seq-pipeline
