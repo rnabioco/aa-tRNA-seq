@@ -22,4 +22,4 @@ A complete protocol for the sequencing approach (including EDC-activation of the
 
 ## Analysis pipeline
 
-A Snakemake analysis pipieline is available at https://github.com/rnabioco/aa-tRNA-seq-pipeline
+A Snakemake analysis pipeline is available at https://github.com/rnabioco/aa-tRNA-seq-pipeline
