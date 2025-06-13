@@ -1,4 +1,7 @@
 # aa-tRNA-seq
+
+[![DOI](https://zenodo.org/badge/888063728.svg)](https://doi.org/10.5281/zenodo.15653410)
+
 Public-facing repo for the preprint [White, Radakovic et al.](https://www.biorxiv.org/content/10.1101/2024.11.18.623114v1)
 
 ## Code and figures found here (November 2024)
