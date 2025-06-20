@@ -15,7 +15,7 @@ Here you will find processed data and figures for generating the plots contained
 ## Data availability
 Complete sequencing data will be available upon publication; for access ahead of publication, please contact the authors. We are currently exploring options for public hosting several Tb of data associated with this project as NCBI GEO is no longer accepting POD5 file submissions.
 
-Note: while Figure 3 plots will currently render upon cloning this repository and running the markdown files in the contained R project, Figure 4 files require additional large files from Remora metrics extraction. These files are hosted on Zenodo at record [10.5281/zenodo.14194756](https://zenodo.org/records/14194756?preview=1&token=eyJhbGciOiJIUzUxMiJ9.eyJpZCI6IjllZDk1ZjAwLTIyOTItNDUxOS1iYWExLTQ1YmZmZjVkMDcwZSIsImRhdGEiOnt9LCJyYW5kb20iOiI1MzhmYTVhNTBkOGRlMWRlZTIxYzU2NDBlOTYzNzZiOCJ9.coXl_i11qIhvO_14f8BOqw9aRY8YldSEDAWjdh5EQ8Az6rZeY2PiBuiZA3vngF5PPwYoTT1qwF8CmSYaw8p1lA)
+Note: while Figure 3 plots will currently render upon cloning this repository and running the markdown files in the contained R project, Figure 4 files require additional large files from Remora metrics extraction. These files are hosted on Zenodo at record [10.5281/zenodo.14194756](https://zenodo.org/records/14194756)
 
 ## Library preparation protocol
 A complete protocol for the sequencing approach (including EDC-activation of the 3´ adapter for chemical ligation, and chemical ligation conditions) is available on Benchling [here](https://benchling.com/protocols/1vXce4Gw/acylated-deacylated-trna-library-preparation-for-rna004-sequencing-final).
