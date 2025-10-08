@@ -2,7 +2,7 @@
 
 [![DOI](https://zenodo.org/badge/888063728.svg)](https://doi.org/10.5281/zenodo.15653410)
 
-Public-facing repo for our Nature Communications publication [White, Radakovic et al.](https://www.nature.com/articles/s41467-025-62545-9)
+Public-facing repo for our Nature Communications publication [White, Radakovic et al. Nanopore sequencing of intact, aminoacylated tRNAs](https://www.nature.com/articles/s41467-025-62545-9)
 
 Previously preprint manuscript: [White, Radakovic et al.](https://www.biorxiv.org/content/10.1101/2024.11.18.623114v1)
 
