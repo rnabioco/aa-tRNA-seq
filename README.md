@@ -6,7 +6,7 @@ Public-facing repo for our Nature Communications publication [White, Radakovic e
 
 Previously preprint manuscript: [White, Radakovic et al.](https://www.biorxiv.org/content/10.1101/2024.11.18.623114v1)
 
-## Code and figures found here (November 2024)
+## Code and figures
 
 Here you will find processed data and figures for generating the plots contained within the manuscript figures, in the subdirectories:
 
@@ -24,7 +24,7 @@ Note: while Figure 3 plots will currently render upon cloning this repository an
 
 ## Library preparation protocol
 
-A complete protocol for the sequencing approach (including EDC-activation of the 3´ adapter for chemical ligation, and chemical ligation conditions) is available on Benchling [here](https://benchling.com/protocols/1vXce4Gw/acylated-deacylated-trna-library-preparation-for-rna004-sequencing-final).
+A complete protocol for the sequencing approach (including EDC-activation of the 3´ adapter for chemical ligation, and chemical ligation conditions) is available on Benchling [here](https://benchling.com/protocols/1vXce4Gw/acylated-deacylated-trna-library-preparation-for-rna004-sequencing-final). This protocol version was fixed at the time of publication.
 
 ## Analysis pipeline
 
