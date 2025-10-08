@@ -24,7 +24,7 @@ Note: while Figure 3 plots will currently render upon cloning this repository an
 
 ## Library preparation protocol
 
-A complete protocol for the sequencing approach (including EDC-activation of the 3´ adapter for chemical ligation, and chemical ligation conditions) is available on Benchling [here](https://benchling.com/protocols/1vXce4Gw/acylated-deacylated-trna-library-preparation-for-rna004-sequencing-final). This protocol version was fixed at the time of publication.
+A complete protocol for the sequencing approach (including EDC-activation of the 3´ adapter for chemical ligation, and chemical ligation conditions) is available on Benchling [here](https://benchling.com/protocols/1vXce4Gw/acylated-deacylated-trna-library-preparation-for-rna004-sequencing-final). This protocol version is fixed to Jan 2025 and reflects the library preparation approach used to generate the data in the publication.
 
 ## Analysis pipeline
 
